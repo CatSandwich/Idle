@@ -3,8 +3,8 @@ using UnityEngine;
 
 public static class Stats
 {
-    public static Stat[] StatArray => new[]{Food, Stone, Wood, BasicHouses};
-    public static StatValues Values => new StatValues(Food.Value, Wood.Value, Stone.Value, BasicHouses.Value);
+    public static Stat[] StatArray => new[]{Food, Stone, Wood, BasicHouses, Population};
+    public static StatValues Values => new StatValues(Food.Value, Wood.Value, Stone.Value, BasicHouses.Value, Population.Value);
 
     public static int MaxPopulation => BasicHouses.Value;
 
@@ -62,6 +62,8 @@ public static class Stats
     public static (int wood, int stone) BasicHouseCost => (100, 100);
     public static readonly Stat BasicHouses = new Stat("Basic Houses", "basic_houses", 0, () => 0);
     #endregion
+
+    public static readonly Stat Population = new Stat("Population", "population", 0, () => 0);
     
     public static void Reset()
     {
@@ -122,12 +124,14 @@ public readonly struct StatValues
     public readonly int Wood;
     public readonly int Stone;
     public readonly int BasicHouses;
+    public readonly int MaxPopulation;
 
-    public StatValues(int food, int wood, int stone, int basicHouses)
+    public StatValues(int food, int wood, int stone, int basicHouses, int maxPopulation)
     {
         Food = food;
         Wood = wood;
         Stone = stone;
         BasicHouses = basicHouses;
+        MaxPopulation = maxPopulation;
     }
 }
