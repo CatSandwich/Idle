@@ -307,11 +307,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 60659398}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5a049b0b79cb44882ca65b80e00ad4, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d8b8ebe51d24ca4d95fe3f646d0fb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obj: {fileID: 780985640}
-  Value: 1
+  Objects:
+  - {fileID: 780985640}
 --- !u!114 &60659401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,11 +888,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 198795481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5a049b0b79cb44882ca65b80e00ad4, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d8b8ebe51d24ca4d95fe3f646d0fb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obj: {fileID: 780985640}
-  Value: 1
+  Objects:
+  - {fileID: 780985640}
 --- !u!114 &198795485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1546,11 +1546,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 505161549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5a049b0b79cb44882ca65b80e00ad4, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d8b8ebe51d24ca4d95fe3f646d0fb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obj: {fileID: 780985640}
-  Value: 1
+  Objects:
+  - {fileID: 780985640}
 --- !u!114 &505161553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1901,6 +1901,7 @@ GameObject:
   - component: {fileID: 544834057}
   - component: {fileID: 544834056}
   - component: {fileID: 544834055}
+  - component: {fileID: 544834059}
   - component: {fileID: 544834058}
   m_Layer: 5
   m_Name: Player
@@ -1973,8 +1974,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 544834059}
+        m_TargetAssemblyTypeName: UI.Button_Toggle.SetActive, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 544834058}
-        m_TargetAssemblyTypeName: UI.TabButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: UI.Button_Toggle.SetInactive, Assembly-CSharp
         m_MethodName: Click
         m_Mode: 1
         m_Arguments:
@@ -2032,10 +2045,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 544834053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a29104b0b948d489064f813fdf52a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d8b8ebe51d24ca4d95fe3f646d0fb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tab: 1
+  Objects:
+  - {fileID: 393259329}
+  - {fileID: 852440896}
+  - {fileID: 740757660}
+  - {fileID: 220895651}
+--- !u!114 &544834059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544834053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3dc8ea17c21e346b6c9ce130bb0e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Objects:
+  - {fileID: 1035917880}
 --- !u!1 &551444963
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,11 +2116,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 551444963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5a049b0b79cb44882ca65b80e00ad4, type: 3}
+  m_Script: {fileID: 11500000, guid: e56c90994e8b7d645911e4d71891ab70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obj: {fileID: 780985640}
-  Value: 2
+  Objects:
+  - {fileID: 780985640}
 --- !u!114 &551444966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2135,7 +2166,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 551444965}
-        m_TargetAssemblyTypeName: UI.SetActiveButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: UI.Button_Toggle.ToggleActive, Assembly-CSharp
         m_MethodName: Click
         m_Mode: 1
         m_Arguments:
@@ -2197,6 +2228,7 @@ GameObject:
   - component: {fileID: 641237225}
   - component: {fileID: 641237224}
   - component: {fileID: 641237227}
+  - component: {fileID: 641237228}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -2280,6 +2312,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 641237228}
+        m_TargetAssemblyTypeName: UI.Button_Toggle.SetInactive, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &641237225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2327,10 +2371,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 641237222}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a29104b0b948d489064f813fdf52a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e3dc8ea17c21e346b6c9ce130bb0e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tab: 4
+  Objects:
+  - {fileID: 220895651}
+--- !u!114 &641237228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641237222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8b8ebe51d24ca4d95fe3f646d0fb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Objects:
+  - {fileID: 393259329}
+  - {fileID: 1035917880}
+  - {fileID: 852440896}
+  - {fileID: 740757660}
 --- !u!1 &649741314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3654,6 +3716,7 @@ GameObject:
   - component: {fileID: 1022560408}
   - component: {fileID: 1022560407}
   - component: {fileID: 1022560406}
+  - component: {fileID: 1022560410}
   - component: {fileID: 1022560409}
   m_Layer: 5
   m_Name: Home
@@ -3726,8 +3789,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1022560410}
+        m_TargetAssemblyTypeName: UI.Button_Toggle.SetActive, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1022560409}
-        m_TargetAssemblyTypeName: UI.TabButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: UI.Button_Toggle.SetInactive, Assembly-CSharp
         m_MethodName: Click
         m_Mode: 1
         m_Arguments:
@@ -3785,10 +3860,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1022560404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a29104b0b948d489064f813fdf52a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d8b8ebe51d24ca4d95fe3f646d0fb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tab: 0
+  Objects:
+  - {fileID: 1035917880}
+  - {fileID: 852440896}
+  - {fileID: 740757660}
+  - {fileID: 220895651}
+--- !u!114 &1022560410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022560404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3dc8ea17c21e346b6c9ce130bb0e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Objects:
+  - {fileID: 393259329}
 --- !u!1 &1035917880
 GameObject:
   m_ObjectHideFlags: 0
@@ -4023,11 +4116,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1126282701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5a049b0b79cb44882ca65b80e00ad4, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d8b8ebe51d24ca4d95fe3f646d0fb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obj: {fileID: 780985640}
-  Value: 1
+  Objects:
+  - {fileID: 780985640}
 --- !u!114 &1126282705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4478,8 +4571,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1386997115}
-        m_TargetAssemblyTypeName: UI.SetActiveButton, Assembly-CSharp
+      - m_Target: {fileID: 1386997116}
+        m_TargetAssemblyTypeName: UI.Button_Toggle.SetInactive, Assembly-CSharp
         m_MethodName: Click
         m_Mode: 1
         m_Arguments:
@@ -4537,11 +4630,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1386997110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5a049b0b79cb44882ca65b80e00ad4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e3dc8ea17c21e346b6c9ce130bb0e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obj: {fileID: 182917281}
-  Value: 0
+  Objects:
+  - {fileID: 182917281}
 --- !u!114 &1386997116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4551,11 +4644,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1386997110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5a049b0b79cb44882ca65b80e00ad4, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d8b8ebe51d24ca4d95fe3f646d0fb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obj: {fileID: 1593211817}
-  Value: 1
+  Objects:
+  - {fileID: 1593211817}
 --- !u!1 &1500275608
 GameObject:
   m_ObjectHideFlags: 0
@@ -4967,6 +5060,7 @@ GameObject:
   - component: {fileID: 1772305487}
   - component: {fileID: 1772305486}
   - component: {fileID: 1772305489}
+  - component: {fileID: 1772305490}
   m_Layer: 5
   m_Name: Settlement
   m_TagString: Untagged
@@ -5050,6 +5144,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1772305490}
+        m_TargetAssemblyTypeName: UI.Button_Toggle.SetInactive, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1772305487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5097,10 +5203,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1772305484}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a29104b0b948d489064f813fdf52a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e3dc8ea17c21e346b6c9ce130bb0e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tab: 2
+  Objects:
+  - {fileID: 852440896}
+--- !u!114 &1772305490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772305484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8b8ebe51d24ca4d95fe3f646d0fb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Objects:
+  - {fileID: 393259329}
+  - {fileID: 1035917880}
+  - {fileID: 740757660}
+  - {fileID: 220895651}
 --- !u!1 &1847378215
 GameObject:
   m_ObjectHideFlags: 0
@@ -5787,6 +5911,7 @@ GameObject:
   - component: {fileID: 1980289653}
   - component: {fileID: 1980289652}
   - component: {fileID: 1980289655}
+  - component: {fileID: 1980289656}
   m_Layer: 5
   m_Name: Storage
   m_TagString: Untagged
@@ -5870,6 +5995,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1980289656}
+        m_TargetAssemblyTypeName: UI.Button_Toggle.SetInactive, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1980289653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5917,10 +6054,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1980289650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a29104b0b948d489064f813fdf52a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e3dc8ea17c21e346b6c9ce130bb0e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tab: 3
+  Objects:
+  - {fileID: 740757660}
+--- !u!114 &1980289656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980289650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8b8ebe51d24ca4d95fe3f646d0fb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Objects:
+  - {fileID: 393259329}
+  - {fileID: 1035917880}
+  - {fileID: 852440896}
+  - {fileID: 220895651}
 --- !u!1 &2028250604
 GameObject:
   m_ObjectHideFlags: 0
@@ -6018,8 +6173,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2028250609}
-        m_TargetAssemblyTypeName: UI.SetActiveButton, Assembly-CSharp
+      - m_Target: {fileID: 2028250610}
+        m_TargetAssemblyTypeName: UI.Button_Toggle.SetInactive, Assembly-CSharp
         m_MethodName: Click
         m_Mode: 1
         m_Arguments:
@@ -6077,11 +6232,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2028250604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5a049b0b79cb44882ca65b80e00ad4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e3dc8ea17c21e346b6c9ce130bb0e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obj: {fileID: 1593211817}
-  Value: 0
+  Objects:
+  - {fileID: 1593211817}
 --- !u!114 &2028250610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6091,11 +6246,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2028250604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5a049b0b79cb44882ca65b80e00ad4, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d8b8ebe51d24ca4d95fe3f646d0fb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obj: {fileID: 182917281}
-  Value: 1
+  Objects:
+  - {fileID: 182917281}
 --- !u!1 &2063457743
 GameObject:
   m_ObjectHideFlags: 0
