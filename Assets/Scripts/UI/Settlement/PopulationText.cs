@@ -3,16 +3,16 @@ using UnityEngine;
 
 namespace UI.Settlement
 {
-    public class MaxPopulationText : MonoBehaviour
+    public class PopulationText : MonoBehaviour
     {
         public TextMeshProUGUI TMP;
     
         void Start() => SetText();
         void OnValidate() => SetText();
 
-        void SetText()
+        public void SetText()
         {
-            TMP.text = $"Max Population: {Stats.MaxPopulation}";
+            TMP.text = $"Population: {Stats.MaxPopulation}";
         }
     }
 }
