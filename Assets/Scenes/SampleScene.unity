@@ -633,6 +633,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edebf76b3fa5dd64396bd813262d1cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsRunning: 1
+  DaySpeed: 0.1
   Home: {fileID: 393259329}
   Player: {fileID: 1035917880}
   Settlement: {fileID: 852440896}
@@ -1374,12 +1376,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 201686918}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 225eaf00392ae344b9716a76fd938357, type: 3}
+  m_Script: {fileID: 11500000, guid: d7dc6a9c579af7a4c9ebdd0c497bf6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowLabel: 0
-  Text: {fileID: 201686921}
-  Resource: 2
+  TMP: {fileID: 201686921}
+  Text: '{{ Stone }}'
 --- !u!114 &201686921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1400,7 +1401,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 200
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1740,7 +1741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &393259330
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3252,7 +3253,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Population: 0'
+  m_text: 'Population: 17'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3883,7 +3884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &852440897
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4093,7 +4094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TMP: {fileID: 1008490786}
-  Text: x {{ BasicHouses }}
+  Text: 'Basic Houses: {{ BasicHouses }}'
 --- !u!114 &1008490786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4114,7 +4115,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x 0
+  m_text: 'Basic Houses: 17'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5582,7 +5583,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 998
+  m_text: 1900
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5671,8 +5672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7dc6a9c579af7a4c9ebdd0c497bf6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TMP: {fileID: 0}
-  Text: 
+  TMP: {fileID: 1627511965}
+  Text: '{{ Food }}'
 --- !u!1 &1765198956
 GameObject:
   m_ObjectHideFlags: 0
@@ -5949,12 +5950,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1847378215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 225eaf00392ae344b9716a76fd938357, type: 3}
+  m_Script: {fileID: 11500000, guid: d7dc6a9c579af7a4c9ebdd0c497bf6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowLabel: 0
-  Text: {fileID: 1847378218}
-  Resource: 1
+  TMP: {fileID: 1847378218}
+  Text: '{{ Wood }}'
 --- !u!114 &1847378218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5975,7 +5975,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 200
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

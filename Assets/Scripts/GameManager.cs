@@ -6,6 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public bool IsRunning = true;
+    public float DaySpeed = 0.1f;
+    private float _percentToNextDay = 0f;
+    
     public Actions Action
     {
         get => _action;
@@ -56,7 +60,15 @@ public class GameManager : MonoBehaviour
     public void Reset()
     {
         Stats.Reset();
-    } 
+    }
+
+    void Update()
+    {
+        if (!IsRunning) return;
+        _percentToNextDay += DaySpeed * Time.deltaTime;
+        if (_trySubtract(ref _percentToNextDay, 1f)) NextDay();
+    }
+    
     
     public void NextDay()
     {
@@ -94,6 +106,13 @@ public class GameManager : MonoBehaviour
         Stats.Food.Value += foodChange;
         Stats.Stone.Value += stoneChange;
         Stats.Wood.Value += woodChange;
+    }
+
+    private bool _trySubtract(ref float val, float amount)
+    {
+        if (val < amount) return false;
+        val -= amount;
+        return true;
     }
     
     public enum Tabs

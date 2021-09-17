@@ -13,6 +13,7 @@ public class GenericLabel : MonoBehaviour
     public void Start()
     {
         Stats.StatChanged += stats => _updateText();
+        _updateText();
     }
 
     private void OnValidate()

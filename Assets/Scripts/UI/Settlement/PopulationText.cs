@@ -12,7 +12,7 @@ namespace UI.Settlement
 
         public void SetText()
         {
-            TMP.text = $"Population: {Stats.MaxPopulation}";
+            TMP.text = $"Population: {Stats.Housing}";
         }
     }
 }
