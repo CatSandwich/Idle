@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace UI.Nav
 {
+    [ExecuteAlways]
     public class StatText : MonoBehaviour
     {
         public bool ShowLabel;
