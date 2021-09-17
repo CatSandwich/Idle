@@ -3903,12 +3903,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1008490783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 225eaf00392ae344b9716a76fd938357, type: 3}
+  m_Script: {fileID: 11500000, guid: d7dc6a9c579af7a4c9ebdd0c497bf6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowLabel: 1
-  Text: {fileID: 1008490786}
-  Resource: 3
+  TMP: {fileID: 1008490786}
+  Text: 'Basic Houses: {{ BasicHouses }}'
 --- !u!114 &1008490786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3929,7 +3928,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Basic Houses: '
+  m_text: 'Basic Houses: 10'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5167,7 +5166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1593211818
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5335,7 +5334,7 @@ GameObject:
   - component: {fileID: 1627511963}
   - component: {fileID: 1627511966}
   - component: {fileID: 1627511965}
-  - component: {fileID: 1627511964}
+  - component: {fileID: 1627511967}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -5362,21 +5361,6 @@ RectTransform:
   m_AnchoredPosition: {x: 30, y: 0}
   m_SizeDelta: {x: -60, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1627511964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1627511962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 225eaf00392ae344b9716a76fd938357, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLabel: 0
-  Text: {fileID: 1627511965}
-  Resource: 0
 --- !u!114 &1627511965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5397,7 +5381,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 998
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5474,6 +5458,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627511962}
   m_CullTransparentMesh: 1
+--- !u!114 &1627511967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627511962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7dc6a9c579af7a4c9ebdd0c497bf6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TMP: {fileID: 1627511965}
+  Text: '{{ Food }}'
 --- !u!1 &1772305484
 GameObject:
   m_ObjectHideFlags: 0
