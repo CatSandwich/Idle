@@ -764,7 +764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &182917282
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4394,6 +4394,7 @@ GameObject:
   - component: {fileID: 1386997113}
   - component: {fileID: 1386997112}
   - component: {fileID: 1386997115}
+  - component: {fileID: 1386997116}
   m_Layer: 5
   m_Name: Population
   m_TagString: Untagged
@@ -4477,6 +4478,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1386997115}
+        m_TargetAssemblyTypeName: UI.SetActiveButton, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1386997113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4527,8 +4540,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb5a049b0b79cb44882ca65b80e00ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obj: {fileID: 0}
+  Obj: {fileID: 182917281}
   Value: 0
+--- !u!114 &1386997116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386997110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5a049b0b79cb44882ca65b80e00ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Obj: {fileID: 1593211817}
+  Value: 1
 --- !u!1 &1500275608
 GameObject:
   m_ObjectHideFlags: 0
@@ -4619,7 +4646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1593211818
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5907,6 +5934,7 @@ GameObject:
   - component: {fileID: 2028250607}
   - component: {fileID: 2028250606}
   - component: {fileID: 2028250609}
+  - component: {fileID: 2028250610}
   m_Layer: 5
   m_Name: Housing
   m_TagString: Untagged
@@ -5990,6 +6018,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2028250609}
+        m_TargetAssemblyTypeName: UI.SetActiveButton, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2028250607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6042,6 +6082,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Obj: {fileID: 1593211817}
   Value: 0
+--- !u!114 &2028250610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028250604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5a049b0b79cb44882ca65b80e00ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Obj: {fileID: 182917281}
+  Value: 1
 --- !u!1 &2063457743
 GameObject:
   m_ObjectHideFlags: 0
