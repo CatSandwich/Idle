@@ -25,6 +25,21 @@ public class GameManager : MonoBehaviour
     public GameObject Storage;
     public GameObject Settings;
     private GameObject _active;
+
+    [Header("Images")] 
+    public Texture2D Food;
+    public Texture2D Wood;
+    public Texture2D Stone;
+    public Texture2D BasicHouses;
+
+    public Texture2D GetTexture(Stats.Resource resource) => resource switch
+    {
+        Stats.Resource.Food => Food,
+        Stats.Resource.Wood => Wood,
+        Stats.Resource.Stone => Stone,
+        Stats.Resource.BasicHouses => BasicHouses,
+        _ => throw new ArgumentOutOfRangeException(nameof(resource), resource, null)
+    };
     
     void Awake()
     {

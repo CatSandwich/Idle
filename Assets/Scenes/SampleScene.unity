@@ -467,6 +467,10 @@ MonoBehaviour:
   Settlement: {fileID: 852440896}
   Storage: {fileID: 740757660}
   Settings: {fileID: 220895651}
+  Food: {fileID: 2800000, guid: 62bef965bcede104fa89192fb33eca64, type: 3}
+  Wood: {fileID: 2800000, guid: 7fbd89bf9afef6649b84f7bc65653630, type: 3}
+  Stone: {fileID: 2800000, guid: 0ff8d48af9dca3749a3cc019ae52082f, type: 3}
+  BasicHouses: {fileID: 2800000, guid: bc468a26139da9c4b8e4cbf32ae547e8, type: 3}
 --- !u!4 &108735426
 Transform:
   m_ObjectHideFlags: 0

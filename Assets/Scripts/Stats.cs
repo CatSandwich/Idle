@@ -6,6 +6,8 @@ public static class Stats
     public static Stat[] StatArray => new[]{Food, Stone, Wood, BasicHouses};
     public static StatValues Values => new StatValues(Food.Value, Wood.Value, Stone.Value, BasicHouses.Value);
 
+    public static int MaxPopulation => BasicHouses.Value;
+
     public static event Action<StatValues> StatChanged;
 
     public static Stat GetResource(Resource resource) => resource switch
