@@ -36,34 +36,12 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        
-        Home.SetActive(false);
-        Player.SetActive(false);
-        Settlement.SetActive(false);
-        Storage.SetActive(false);
-        Settings.SetActive(false);
-        SetTab(Tabs.Home);
     }
 
     public void Reset()
     {
         Stats.Reset();
     } 
-
-    public void SetTab(Tabs tab)
-    {
-        _active?.SetActive(false);
-        _active = tab switch
-        {
-            Tabs.Home => Home,
-            Tabs.Player => Player,
-            Tabs.Settlement => Settlement,
-            Tabs.Storage => Storage,
-            Tabs.Settings => Settings,
-            _ => throw new ArgumentOutOfRangeException(nameof(tab), tab, null)
-        };
-        _active.SetActive(true);
-    }
     
     public void NextDay()
     {
