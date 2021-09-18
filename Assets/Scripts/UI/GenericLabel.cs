@@ -29,8 +29,15 @@ public class GenericLabel : MonoBehaviour
             .Replace("{{ Food }}", Stats.Food.Value.ToString())
             .Replace("{{ Wood }}", Stats.Wood.Value.ToString())
             .Replace("{{ Stone }}", Stats.Stone.Value.ToString())
+            .Replace("{{ Gold }}", Stats.Food.Value.ToString())                 // HERE 
+            .Replace("{{ Diamonds }}", Stats.Food.Value.ToString())             // HERE
             .Replace("{{ BasicHouses }}", Stats.BasicHouses.Value.ToString())
             .Replace("{{ BasicHouseCostWood }}", Stats.BasicHouseCost.wood.ToString())
-            .Replace("{{ BasicHouseCostStone }}", Stats.BasicHouseCost.stone.ToString());
+            .Replace("{{ BasicHouseCostStone }}", Stats.BasicHouseCost.stone.ToString())
+
+            .Replace("{{ Population }}", Stats.Food.Value.ToString())               // TO DO: 
+            .Replace("{{ MaxPopulation }}", Stats.Food.Value.ToString());           // Add proper reference 
+
+
     }
 }
