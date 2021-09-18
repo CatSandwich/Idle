@@ -635,11 +635,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 1
   DaySpeed: 0.1
-  Home: {fileID: 393259329}
-  Player: {fileID: 1035917880}
-  Settlement: {fileID: 852440896}
-  Storage: {fileID: 740757660}
-  Settings: {fileID: 220895651}
   Food: {fileID: 2800000, guid: 62bef965bcede104fa89192fb33eca64, type: 3}
   Wood: {fileID: 2800000, guid: 7fbd89bf9afef6649b84f7bc65653630, type: 3}
   Stone: {fileID: 2800000, guid: 0ff8d48af9dca3749a3cc019ae52082f, type: 3}
@@ -1105,7 +1100,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 852440897}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1401,7 +1396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 200
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1741,7 +1736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &393259330
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2107,7 +2102,7 @@ GameObject:
   - component: {fileID: 533135216}
   - component: {fileID: 533135218}
   - component: {fileID: 533135217}
-  - component: {fileID: 533135219}
+  - component: {fileID: 533135220}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2154,9 +2149,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Change Action
-
-'
+  m_text: Idle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2233,7 +2226,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533135215}
   m_CullTransparentMesh: 1
---- !u!114 &533135219
+--- !u!114 &533135220
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2242,9 +2235,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 533135215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 358ba200b87caff469a1d4b6de8c06fd, type: 3}
+  m_Script: {fileID: 11500000, guid: d7dc6a9c579af7a4c9ebdd0c497bf6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TMP: {fileID: 533135217}
+  Text: '{{ Action }}'
 --- !u!1 &544834053
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,7 +3188,6 @@ GameObject:
   - component: {fileID: 730847808}
   - component: {fileID: 730847807}
   - component: {fileID: 730847806}
-  - component: {fileID: 730847809}
   m_Layer: 5
   m_Name: MaxPopulationText
   m_TagString: Untagged
@@ -3213,7 +3207,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 852440897}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3229,10 +3223,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 730847804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db81c5c57e1b2944e98ba892bdb50eb8, type: 3}
+  m_Script: {fileID: 11500000, guid: d7dc6a9c579af7a4c9ebdd0c497bf6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TMP: {fileID: 730847807}
+  Text: 'Population: {{ AvailablePopulation }} / {{ Population }}'
 --- !u!114 &730847807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3253,7 +3248,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Population: 17'
+  m_text: 'Population: 0 / 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3330,33 +3325,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730847804}
   m_CullTransparentMesh: 1
---- !u!114 &730847809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730847804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dacf31439a878843b3c28455f181acc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Callbacks:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 730847806}
-        m_TargetAssemblyTypeName: UI.Settlement.PopulationText, Assembly-CSharp
-        m_MethodName: SetText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &740757660
 GameObject:
   m_ObjectHideFlags: 0
@@ -3884,7 +3852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &852440897
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3898,9 +3866,9 @@ RectTransform:
   m_Children:
   - {fileID: 2028250605}
   - {fileID: 1386997111}
+  - {fileID: 730847805}
   - {fileID: 1593211818}
   - {fileID: 182917282}
-  - {fileID: 730847805}
   m_Father: {fileID: 1859203144}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4115,7 +4083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Basic Houses: 17'
+  m_text: 'Basic Houses: 19'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5345,7 +5313,7 @@ RectTransform:
   m_Children:
   - {fileID: 800498143}
   m_Father: {fileID: 852440897}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5975,7 +5943,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 200
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

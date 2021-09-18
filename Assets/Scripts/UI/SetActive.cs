@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UI.Button_Toggle
+namespace UI
 {
     public class SetActive : MonoBehaviour
     {

@@ -6,8 +6,7 @@ public static class Stats
     public static Stat[] StatArray => new[]{Food, Stone, Wood, BasicHouses, Population};
     public static StatValues Values => new StatValues(Food.Value, Wood.Value, Stone.Value, BasicHouses.Value, Population.Value);
 
-    public static int Housing => BasicHouses.Value;
-
+    
     public static event Action<StatValues> StatChanged;
 
     public static Stat GetResource(Resource resource) => resource switch
@@ -26,7 +25,7 @@ public static class Stats
         GameManager.Actions.Fishing => 100,
         GameManager.Actions.Woodcutting => -5,
         GameManager.Actions.Mining => -5,
-        _ => throw new ArgumentOutOfRangeException()
+        _ => throw new ArgumentOutOfRangeException($"Invalid action {GameManager.Instance.Action}.")
     };
 
     //private static int FoodGainPerPopulation => GameManager.Instance.Population * -1;
@@ -58,12 +57,17 @@ public static class Stats
     public static readonly Stat Wood = new Stat("Wood","wood", 1000, () => ActionWoodGain);
     #endregion
 
-    #region Houses
-    public static (int wood, int stone) BasicHouseCost => (100, 100);
-    public static readonly Stat BasicHouses = new Stat("Basic Houses", "basic_houses", 0, () => 0);
+    #region Population
+    public static int Housing => BasicHouses.Value;
+    public static readonly Stat Population = new Stat("Population", "population", 0);
+    public static int AvailablePopulation => Population.Value;
+    
     #endregion
 
-    public static readonly Stat Population = new Stat("Population", "population", 0, () => 0);
+    #region Houses
+    public static (int wood, int stone) BasicHouseCost => (100, 100);
+    public static readonly Stat BasicHouses = new Stat("Basic Houses", "basic_houses", 0);
+    #endregion
     
     public static void Reset()
     {
@@ -99,22 +103,22 @@ public static class Stats
         public event Action<int> ValueChanged = null;
         private readonly Func<int> _calcDailyChange;
 
-        private readonly string _name;
+        public readonly string Name;
         private readonly string _key;
         private readonly int _default;
 
-        public Stat(string name, string key, int @default, Func<int> calcDailyChange)
+        public Stat(string name, string key, int @default, Func<int> calcDailyChange = null)
         {
-            _name = name;
+            Name = name;
             _key = key;
             _default = @default;
-            _calcDailyChange = calcDailyChange;
+            _calcDailyChange = calcDailyChange ?? (() => 0);
         }
 
         public void NextDay() => Value += _calcDailyChange();
         public void Reset() => Value = _default;
         public override string ToString() => ToString(true);
-        public string ToString(bool label) => label ? $"{_name}: " : "" + Value;
+        public string ToString(bool label) => label ? $"{Name}: " : "" + Value;
     }
 }
 
