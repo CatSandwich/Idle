@@ -1,5 +1,6 @@
 .idea/
 .vs/
+.vsconfig
 Library/
 Logs/
 obj/
