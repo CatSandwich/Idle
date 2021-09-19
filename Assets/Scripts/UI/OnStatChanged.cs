@@ -7,6 +7,6 @@ namespace UI
     {
         public UnityEvent Callbacks;
 
-        void Start() => Stats.StatChanged += stats => Callbacks.Invoke();
+        void Start() => Stats.StatChanged += Callbacks.Invoke;
     }
 }

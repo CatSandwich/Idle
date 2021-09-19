@@ -1,4 +1,5 @@
 using System;
+using UI.Settlement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -15,12 +16,13 @@ public class GameManager : MonoBehaviour
         get => _action;
         set
         {
+            if (value == _action) return;
             _action = value;
-            ActionChanged(value);
+            ActionChanged();
         }
     }
     private Actions _action = Actions.Idle;
-    public event Action<Actions> ActionChanged = action => { };
+    public event Action ActionChanged = () => { };
 
     #region Resources
     [Header("Images")] 
@@ -50,19 +52,17 @@ public class GameManager : MonoBehaviour
 
     public void NextDay()
     {
-        foreach (var stat in Stats.StatArray)
+        var delta = Stats.ActionResourceDeltas[Action];
+        delta += new ResourceDelta
         {
-            if (!stat.IsValid)
-            {
-                Debug.Log($"Insufficient {stat.Name}, day failed.");
-                return;
-            }
-        }
-
-        foreach (var stat in Stats.StatArray)
+            Food = Stats.Resources[Stats.Resource.Population].Value
+        };
+        if ((delta + Stats.ToDelta()).HasNegative())
         {
-            stat.NextDay();
+            Debug.Log("Next day would make negative value, skipping.");
+            return;
         }
+        Stats.ApplyDelta(delta);
     }
 
     private bool _trySubtract(ref float val, float amount)

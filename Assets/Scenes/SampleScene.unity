@@ -2192,7 +2192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 265661697}
   m_Layer: 5
-  m_Name: MaxPopulation
+  m_Name: Housing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2291,7 +2291,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2520,9 +2520,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 357552481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5922b7257bac2a0479252eda42df2591, type: 3}
+  m_Script: {fileID: 11500000, guid: b8110ecb4c45e8246bde56d20051772f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Outcome:
+    Wood: 0
+    Stone: 0
+    Food: 0
+    Gold: 0
+    Diamonds: 0
+    Population: 0
+    BasicHouses: 0
 --- !u!114 &357552484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2567,7 +2575,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 357552483}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuildHouse, Assembly-CSharp
         m_MethodName: Build
         m_Mode: 1
@@ -2742,8 +2750,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 364375959}
-        m_TargetAssemblyTypeName: BuildHouse, Assembly-CSharp
-        m_MethodName: Build
+        m_TargetAssemblyTypeName: UI.PurchaseButton, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2800,9 +2808,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 364375954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5922b7257bac2a0479252eda42df2591, type: 3}
+  m_Script: {fileID: 11500000, guid: b8110ecb4c45e8246bde56d20051772f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Outcome:
+    Wood: -100
+    Stone: -100
+    Food: 0
+    Gold: 0
+    Diamonds: 0
+    Population: 0
+    BasicHouses: 1
 --- !u!1 &376428532
 GameObject:
   m_ObjectHideFlags: 0
@@ -5040,7 +5056,6 @@ GameObject:
   - component: {fileID: 753687036}
   - component: {fileID: 753687035}
   - component: {fileID: 753687034}
-  - component: {fileID: 753687033}
   m_Layer: 5
   m_Name: Reset
   m_TagString: Untagged
@@ -5068,18 +5083,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &753687033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753687031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3546f6300c6544d48a3cee788226bde8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &753687034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5124,9 +5127,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 753687033}
-        m_TargetAssemblyTypeName: UI.ResetButton, Assembly-CSharp
-        m_MethodName: Click
+      - m_Target: {fileID: 108735425}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5246,11 +5249,11 @@ RectTransform:
   m_Father: {fileID: 1035917881}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -400, y: -200}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -110}
+  m_SizeDelta: {x: 200, y: -120}
+  m_Pivot: {x: 1, y: 1}
 --- !u!1 &784649206
 GameObject:
   m_ObjectHideFlags: 0
@@ -7396,9 +7399,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1247162939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5922b7257bac2a0479252eda42df2591, type: 3}
+  m_Script: {fileID: 11500000, guid: b8110ecb4c45e8246bde56d20051772f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Outcome:
+    Wood: 0
+    Stone: 0
+    Food: 0
+    Gold: 0
+    Diamonds: 0
+    Population: 0
+    BasicHouses: 0
 --- !u!114 &1247162942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7443,7 +7454,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1247162941}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuildHouse, Assembly-CSharp
         m_MethodName: Build
         m_Mode: 1
@@ -9428,7 +9439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TMP: {fileID: 1683719133}
-  Text: '{{ Population }}'
+  Text: '{{ AvailablePopulation }} / {{ Population }}'
 --- !u!114 &1683719133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9449,7 +9460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 0 / 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10087,8 +10098,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: -20, y: -120}
+  m_AnchoredPosition: {x: -95, y: -50}
+  m_SizeDelta: {x: -210, y: -120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1852343028
 MonoBehaviour:
