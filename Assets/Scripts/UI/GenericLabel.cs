@@ -1,43 +1,53 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GenericLabel : MonoBehaviour
+namespace UI
 {
-    public TextMeshProUGUI TMP;
-    [TextArea]
-    public string Text;
-
-    public void Start()
+    public class GenericLabel : MonoBehaviour
     {
-        Stats.StatChanged += stats => _updateText();
-        _updateText();
-    }
+        public TextMeshProUGUI TMP;
+        [TextArea]
+        public string Text;
 
-    private void OnValidate()
-    {
-        _updateText();
-    }
+        public void Start()
+        {
+            Stats.StatChanged += stats => _updateText();
+            GameManager.Instance.ActionChanged += action => _updateText();
+            _updateText();
+        }
 
-    void _updateText()
-    {
-        if (!TMP) return;
-        
-        TMP.text = Text
-            .Replace("{{ Food }}", Stats.Food.Value.ToString())
-            .Replace("{{ Wood }}", Stats.Wood.Value.ToString())
-            .Replace("{{ Stone }}", Stats.Stone.Value.ToString())
-            .Replace("{{ Gold }}", Stats.Food.Value.ToString())                 // HERE 
-            .Replace("{{ Diamonds }}", Stats.Food.Value.ToString())             // HERE
-            .Replace("{{ BasicHouses }}", Stats.BasicHouses.Value.ToString())
-            .Replace("{{ BasicHouseCostWood }}", Stats.BasicHouseCost.wood.ToString())
-            .Replace("{{ BasicHouseCostStone }}", Stats.BasicHouseCost.stone.ToString())
+        private void OnValidate() => _updateText();
 
-            .Replace("{{ Population }}", Stats.Food.Value.ToString())               // TO DO: 
-            .Replace("{{ MaxPopulation }}", Stats.Food.Value.ToString());           // Add proper reference 
+        void _updateText()
+        {
+            if (!TMP)
+            {
+                #if UNITY_EDITOR
+                Debug.LogError("TMP not set on GenericLabel.");
+                #endif
+                return;
+            }
 
-
+            try
+            {
+                TMP.text = Text
+                    .Replace("{{ Food }}", Stats.Food.Value.ToString())
+                    .Replace("{{ Wood }}", Stats.Wood.Value.ToString())
+                    .Replace("{{ Stone }}", Stats.Stone.Value.ToString())
+                    .Replace("{{ Gold }}", Stats.Food.Value.ToString())                 // HERE 
+                    .Replace("{{ Diamonds }}", Stats.Food.Value.ToString())  
+                    .Replace("{{ BasicHouses }}", Stats.BasicHouses.Value.ToString())
+                    .Replace("{{ Population }}", Stats.Population.Value.ToString())
+                    .Replace("{{ AvailablePopulation }}", Stats.AvailablePopulation.ToString())
+                    .Replace("{{ BasicHouseCostWood }}", Stats.BasicHouseCost.wood.ToString())
+                    .Replace("{{ BasicHouseCostStone }}", Stats.BasicHouseCost.stone.ToString())
+                    .Replace("{{ Action }}", GameManager.Instance.Action.ToString());
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e, gameObject);
+            }
+        }
     }
 }

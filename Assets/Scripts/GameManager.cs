@@ -1,10 +1,10 @@
 using System;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance => _instance ??= FindObjectOfType<GameManager>();
+    private static GameManager _instance;
 
     public bool IsRunning = true;
     public float DaySpeed = 0.1f;
@@ -22,14 +22,7 @@ public class GameManager : MonoBehaviour
     private Actions _action = Actions.Idle;
     public event Action<Actions> ActionChanged = action => { };
 
-    [Header("Tabs")]
-    public GameObject Home;
-    public GameObject Player;
-    public GameObject Settlement;
-    public GameObject Storage;
-    public GameObject Settings;
-    private GameObject _active;
-
+    #region Resources
     [Header("Images")] 
     public Texture2D Food;
     public Texture2D Wood;
@@ -44,68 +37,32 @@ public class GameManager : MonoBehaviour
         Stats.Resource.BasicHouses => BasicHouses,
         _ => throw new ArgumentOutOfRangeException(nameof(resource), resource, null)
     };
+    #endregion
     
-    void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
-    public void Reset()
-    {
-        Stats.Reset();
-    }
-
     void Update()
     {
         if (!IsRunning) return;
         _percentToNextDay += DaySpeed * Time.deltaTime;
         if (_trySubtract(ref _percentToNextDay, 1f)) NextDay();
     }
-    
-    
+
+    public void Reset() => Stats.Reset();
+
     public void NextDay()
     {
-        var foodChange = Action switch
+        foreach (var stat in Stats.StatArray)
         {
-            Actions.Idle => -1,
-            Actions.Fishing => 100,
-            Actions.Woodcutting => -5,
-            Actions.Mining => -5,
-            _ => throw new ArgumentOutOfRangeException()
-        };
-        
-        var stoneChange = Action switch
+            if (!stat.IsValid)
+            {
+                Debug.Log($"Insufficient {stat.Name}, day failed.");
+                return;
+            }
+        }
+
+        foreach (var stat in Stats.StatArray)
         {
-            Actions.Idle => 0,
-            Actions.Fishing => -5,
-            Actions.Woodcutting => -5,
-            Actions.Mining => 100,
-            _ => throw new ArgumentOutOfRangeException()
-        };
-
-        var woodChange = Action switch
-        {
-            Actions.Idle => 0,
-            Actions.Fishing => -5,
-            Actions.Woodcutting => 100,
-            Actions.Mining => -5,
-            _ => throw new ArgumentOutOfRangeException()
-        };
-
-        if (Stats.Food.Value + foodChange < 0) return;
-        if (Stats.Stone.Value + stoneChange < 0) return;
-        if (Stats.Wood.Value + woodChange < 0) return;
-
-        Stats.Food.Value += foodChange;
-        Stats.Stone.Value += stoneChange;
-        Stats.Wood.Value += woodChange;
+            stat.NextDay();
+        }
     }
 
     private bool _trySubtract(ref float val, float amount)
