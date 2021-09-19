@@ -38,6 +38,7 @@ namespace UI
                     .Replace("{{ Gold }}", Stats.Food.Value.ToString())                 // HERE 
                     .Replace("{{ Diamonds }}", Stats.Food.Value.ToString())  
                     .Replace("{{ BasicHouses }}", Stats.BasicHouses.Value.ToString())
+                    .Replace("{{ Housing }}", Stats.Housing.ToString())
                     .Replace("{{ Population }}", Stats.Population.Value.ToString())
                     .Replace("{{ AvailablePopulation }}", Stats.AvailablePopulation.ToString())
                     .Replace("{{ BasicHouseCostWood }}", Stats.BasicHouseCost.wood.ToString())
